@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     protected const TASK_CLASS_TACHE = 'secondary';
-    protected const TASK_CLASS_FAIRE = 'primary';
-    protected const TASK_CLASS_FINIE = 'success';
+    protected const TASK_CLASS_FAIRE = 'info';
+    protected const TASK_CLASS_FINIE = 'warning';
     protected $fillable =[
         'title', 'description','statut'
     ];
@@ -32,7 +32,7 @@ class Task extends Model
         $this->save();
     }
 
-    public function getTaskClass($statut){
+    public static function getTaskClass($statut){
         $classes = [
             'tache' => self::TASK_CLASS_TACHE,
             'faire' => self::TASK_CLASS_FAIRE,

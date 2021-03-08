@@ -8,12 +8,23 @@ use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
+    
 
     protected $rules =[
         'title' => 'required',
         'description' => 'required',
         'statut' => 'required',
     ];
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,17 +46,6 @@ class TaskController extends Controller
         return view('tasks.index', compact('tasks'));
     }
 
-   
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -71,28 +71,6 @@ class TaskController extends Controller
             'task' => $task,
             'card' => $card,
          ]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -131,7 +109,7 @@ class TaskController extends Controller
     public function destroy($id)
     {
         $task = Task::findOrfail($id);
-        $task->commentaire->delete();
+        $task->commentaire()->delete();
         $task->delete();
 
         return response()->json($task);
