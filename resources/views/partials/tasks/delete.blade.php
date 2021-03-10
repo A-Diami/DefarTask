@@ -1,12 +1,14 @@
 <div class="modal fade" id="deleteTaskForm" tabindex="-1" role="dialog" aria-labelledby="deleteTaskFormLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            
             <div class="modal-header">
                 <h5 class="modal-title" id="deleteTaskFormLabel">Supprimer tache</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </button>
             </div>
+            
             <div class="modal-body">
                 <div class="card">
                     <div class="card-header">
@@ -26,9 +28,11 @@
                 </div>
             </div>
             <div class="modal-footer">
+            @role('Coach|Admin')
                 <button type="button" class="btn btn-danger delete-task-confirm" data-dismiss="modal">
                     <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
                 </button>
+            @endrole
                 <button type="button" class="btn btn-danger-warning" data-dismiss="modal">
                     <i class="fa fa-times" aria-hidden="true"></i> Cancel
                 </button>

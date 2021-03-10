@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.default')
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">

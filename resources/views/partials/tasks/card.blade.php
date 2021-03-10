@@ -1,4 +1,4 @@
-<div class="card card-{{ $task->id }} mb-4">
+<div class="card card-{{ $task->id }} mb-9">
     <div class="card-header text-right">
         <span class="badge badge-light justify-content-end" >
             <i class="fa fa-calendar" aria-hidden="true"></i>{{ $task->updated_at }}

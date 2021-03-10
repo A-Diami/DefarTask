@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
@@ -32,6 +35,19 @@ class TaskController extends Controller
      */
     public function index()
     {
+    //Role::create(['name'=>'Admin']);
+      //$permission= Permission::create(['name'=>'Edit Task']);
+       //$role = Role::findById(4);
+       //$permission = Permission::findById(5);
+      
+       //$permission->removeRole($role);
+      // 
+     //$role->givePermissionTo($permission);
+        //auth()->user()->givePermissionTo('Delete Task');
+        //auth()->user()->assignRole('Admin');
+        //return auth()->user()->getAllPermissions();
+
+        //return User::permission('Post Task')->get();
         $tasks = [
             'tache' => [],
             'faire' => [],
